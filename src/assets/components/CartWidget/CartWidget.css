@@ -1,0 +1,12 @@
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .cart-link:hover .cart-icon {
+    background-color: transparent; 
+  }
+  
+  .cart-icon {
+    font-size: 1.1rem;
+  }
