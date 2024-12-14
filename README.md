@@ -1,4 +1,4 @@
-# ¡Bienvenido a mi Tienda Online React! ️
+# ¡Bienvenido a mi Proyecto React JS en CoderHouse! ️
 
 ¡Hola!  Me emociona presentarte este proyecto que he desarrollado con cariño: una tienda online construida con React y Firebase. Más que un simple ejercicio, es un espacio donde puedes explorar productos, simular compras y ver cómo funciona la gestión de stock en tiempo real.
 
@@ -30,13 +30,9 @@ Esta tienda te ofrece las siguientes funcionalidades:
     *   Antes de añadir un producto al carrito, se verifica que haya stock disponible.
     *   Después de cada compra, el stock se actualiza automáticamente para reflejar la cantidad real.
 
-## ¡Anímate a explorar! 
-
-Espero que disfrutes interactuando con este proyecto tanto como yo disfruté creándolo. Si tienes alguna pregunta, sugerencia o simplemente quieres saludar, ¡no dudes en contactarme! 
-
 ## Para desarrolladores (si aplica) 
 
-Si te interesa ver el código o contribuir al proyecto, puedes encontrarlo en [enlace al repositorio de GitHub, si existe].
+Si te interesa ver el código o contribuir al proyecto. Aqui te dejo como realizar la instalacion de la aplicacion.
 
 **Instrucciones de instalación (si aplica):**
 
