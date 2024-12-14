@@ -41,8 +41,12 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId]);
 
   const handleAddToCart = (product) => {
-    addToCart(product);
-    toast.success(`${product.title} agregado al carrito`, { autoClose: 2000 });
+    if (product.stock > 0) {
+      addToCart(product);
+      toast.success(`${product.title} agregado al carrito`, { autoClose: 2000 });
+    } else {
+      toast.error(`Lo sentimos, no hay stock suficiente de ${product.title}`, { autoClose: 2000 });
+    }
   };
 
   return (
@@ -78,19 +82,21 @@ const ItemListContainer = ({ greeting }) => {
                 <h3>{product.title}</h3>
                 <p>{product.description}</p>
                 <p>Precio: ${product.price}</p>
+                <p>Stock disponible: {product.stock}</p>
               </div>
               <button
                 onClick={() => handleAddToCart(product)}
+                disabled={product.stock === 0}
                 style={{
                   padding: "10px 15px",
-                  backgroundColor: "#28a745",
-                  color: "#fff",
+                  backgroundColor: product.stock === 0 ? "#ccc" : "#28a745",
+                  color: product.stock === 0 ? "#666" : "#fff",
                   border: "none",
                   borderRadius: "5px",
-                  cursor: "pointer",
+                  cursor: product.stock === 0 ? "not-allowed" : "pointer",
                 }}
               >
-                Agregar al carrito
+                {product.stock === 0 ? "Sin stock" : "Agregar al carrito"}
               </button>
             </li>
           ))}
