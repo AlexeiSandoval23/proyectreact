@@ -1,24 +1,30 @@
-import CartWidget from '../CartWidget/CartWidget'
-import './navbar.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
+import "./navbar.css"; 
 
-
-function NavBar() {
+const NavBar = () => {
   return (
     <nav className="navbar">
-      <h1 className="navbar-title"></h1>
+      <h1 className="navbar-title">Mi E-Commerce</h1>
       <ul className="navbar-menu">
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#about">Sobre Nosotros</a></li>
-        <li><a href="#shop">Tienda</a></li>
-        <li><a href="#contact">Contacto</a></li>
         <li>
-          <a href="#cartwidget" className="cart-link">
-            <CartWidget />
-          </a>
+          <Link to="/">Inicio</Link>
+        </li>
+        <li>
+          <Link to="/category/electronica">Electrónica</Link>
+        </li>
+        <li>
+          <Link to="/category/ropa">Ropa</Link>
+        </li>
+        <li>
+          <Link to="/category/hogar">Hogar</Link>
         </li>
       </ul>
+      <CartWidget cartCount={0} />
     </nav>
   );
-}
+};
 
 export default NavBar;
+

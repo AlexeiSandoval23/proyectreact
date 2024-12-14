@@ -1,12 +1,27 @@
+:root {
+  --cart-text-color: white;
+  --cart-badge-bg: red;
+  --cart-badge-color: white;
+  --cart-gap: 0.3rem;
+  --badge-radius: 50%;
+  --badge-padding: 0.2rem 0.5rem;
+  --badge-font-size: 0.8rem;
+}
+
+
 .cart-link {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .cart-link:hover .cart-icon {
-    background-color: transparent; 
-  }
-  
-  .cart-icon {
-    font-size: 1.1rem;
-  }
+  display: flex;
+  align-items: center;
+  gap: var(--cart-gap);
+  text-decoration: none;
+  color: var(--cart-text-color);
+}
+
+
+.cart-count {
+  background-color: var(--cart-badge-bg);
+  color: var(--cart-badge-color);
+  padding: var(--badge-padding);
+  border-radius: var(--badge-radius);
+  font-size: var(--badge-font-size);
+}

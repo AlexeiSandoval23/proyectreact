@@ -1,26 +1,11 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const ButtonCounter = () => {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  const handleReset = () => {
-    setCount(0);
-  };
-
-// handleClick
-// handleReset boton para reiniciar el contador
-
+const Button = ({ children, onClick, style }) => {
   return (
-    <div>
-      <button onClick={handleClick}>Presiona el botón</button>
-      <button onClick={handleReset}>Reiniciar contador</button>
-      <p>Gracias por presionar el botón {count} veces.</p>
-    </div>
+    <button onClick={onClick} style={style}>
+      {children}
+    </button>
   );
 };
 
-export default ButtonCounter;
+export default Button;
