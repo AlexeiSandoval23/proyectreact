@@ -1,33 +1,32 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../CartContext/CartContext.jsx";
-import { doc, getDoc } from "firebase/firestore"; // Importar funciones de Firestore
-import { db } from "../../../../firebaseConfig.js"; // Configuración de Firestore
+import { doc, getDoc } from "firebase/firestore"; 
+import { db } from "../../../../firebaseConfig.js"; 
 import Button from "../Button/Button.jsx";
 
 const ItemDetailContainer = () => {
-  const { productId } = useParams(); // Obtener el ID del producto desde la URL
-  const [product, setProduct] = useState(null); // Estado del producto seleccionado
-  const [loading, setLoading] = useState(true); // Estado de carga
-  const { addToCart } = useContext(CartContext); // Contexto del carrito
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null); 
+  const [loading, setLoading] = useState(true);
+  const { addToCart } = useContext(CartContext); 
 
   useEffect(() => {
     const fetchProduct = async () => {
-      setLoading(true); // Inicia el estado de carga
+      setLoading(true);
       try {
-        // Referencia al documento del producto en Firestore
         const docRef = doc(db, "items", productId);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setProduct({ id: docSnap.id, ...docSnap.data() }); // Guardar datos del producto
+          setProduct({ id: docSnap.id, ...docSnap.data() }); 
         } else {
           console.error("El producto no existe en la base de datos.");
         }
       } catch (error) {
         console.error("Error al obtener el producto:", error);
       } finally {
-        setLoading(false); // Detiene el estado de carga
+        setLoading(false); 
       }
     };
 
@@ -36,8 +35,8 @@ const ItemDetailContainer = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart(product); // Agregar al carrito
-      alert(`${product.title} agregado al carrito`); // Nota: usamos "title" de la base de datos
+      addToCart(product); 
+      alert(`${product.title} agregado al carrito`); 
     }
   };
 
@@ -49,7 +48,7 @@ const ItemDetailContainer = () => {
         <div>
           <h1>{product.title}</h1>
           <img
-            src={product.imageid} // Imagen del producto desde Firestore
+            src={product.imageid} 
             alt={product.title}
             style={{
               width: "300px",
